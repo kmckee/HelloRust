@@ -6,14 +6,7 @@ fn main() {
 }
 
 fn add(numbers: &str) -> int {
-  let mut total = 0;
-  for str::split_char(numbers, ',').each |x| {
-    total += match int::from_str(*x) {
-      Some(x) => x,
-      None => 0
-    };
-  }
-  return total; 
+  vec::foldl(0, str::split_char(numbers, ','), |a, b| a + match int::from_str(*b) { Some(x) => x, None => 0 })
 }
 
 
