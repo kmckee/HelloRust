@@ -8,15 +8,12 @@ fn main() {
 fn add(numbers: &str) -> int {
   let mut total = 0;
   for str::split_char(numbers, ',').each |x| {
-    let y = int::from_str(*x);
-    let t = match y {
+    total += match int::from_str(*x) {
       Some(x) => x,
       None => 0
     };
-    total += t;
   }
   return total; 
-  //return int::from_str(numbers);
 }
 
 
