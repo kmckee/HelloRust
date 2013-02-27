@@ -1,0 +1,9 @@
+watch('(.*).rs') do |md|
+  clear_console  
+  system "rustc hello.rs"
+  system "./hello"
+end
+
+def clear_console
+  puts "\e[H\e[2J"
+end
